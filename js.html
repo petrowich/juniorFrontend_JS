@@ -1,92 +1,33 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
     <head>
-        <title>Вакансия: Junior FrontEnd Developer</title>
+        <title>выразительный JavaScript</title>
         <meta charset="utf-8">
-        <link href="form.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-        <div class="header"><h1>Вакансия: Junior FrontEnd Developer</h1></div>
-        <div class="content">                        
-            <div>
-                <div style="display: inline-block;">
-                    <img class="photo" src="image.jpg" width="170" height="148">
-                </div>                
-                <div style="display: inline-block; vertical-align: top;">
-                    <div>Имя: ...</div>
-                    <div><a href="https://github.com/petrowich/juniorFrontend_HR_form.git">ссылка на гитхаб</a></div>
-                    <div>Опыт работы: нет</div>
-                </div>
-            </div>
-            <form>
-                <div>Дата собеседования: <input type="date">&#128197;</div>
-                <div>
-                    <p style="margin-bottom: 0;">Уровень английского:</p>
-                    <input type="radio" name="english_level" value="Elementary"> плохо
-                    <input type="radio" name="english_level" value="Intermediate" checked> средне
-                    <input type="radio" name="english_level" value="Advanced"> хорошо
-                    <input type="radio" name="english_level" value="Proficiency"> превосходно
-                </div>
-                <div>
-                    <p style="margin-bottom: 0;">Ключевые навыки</p>
-                    <ul style="margin-top: 0; margin-bottom: 0;">
-                        <li>HTML</li>
-                        <li>CSS/LESS</li>
-                        <li>JavaScript</li>
-                        <li>...</li>
-                    </ul>
-                    <div>
-                        <input type="text" name="skills" value="введите навык...">
-                        <input type="submit" name="skills" value="добавить в список">
-                    </div>
-                </div>
-                <div>
-                    <p>Коммуникабельность:
-                    <select>                            
-                            <option value="low">низкая</option>
-                            <option value="middle" selected>средняя</option>
-                            <option value="high">высокая</option>
-                    </select>
-                    </p>
-                </div>
-                <div>
-                    <p>Желаемая з/п: <input type="text" value="введите значение..."></p>
-                </div>
-                <div>
-                    <p style="margin-bottom: 0;">Подходит по критериям:</p>
-                    <input type="checkbox" name="criteria">Знание английского
-                    <input type="checkbox" name="criteria">Оклад
-                    <input type="checkbox" name="criteria">Навыки
-                    <input type="checkbox" name="criteria" checked>Сразу видно, что свой человек
-                </div>
-            </form>
-            <div>
-                <p style="margin-bottom: 0;">Образование, курсы и т.п.</p>
-                <table border=1 bordercolor="#000000" cellspacing=0 cellpadding=5>
-                    <tbody>
-                        <tr style="font-weight: bold">
-                            <td>#</td>
-                            <td>сроки обучения</td>
-                            <td>Наименование учебного заведения, курсов...</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>01.01.2010 - 01.01.2013</td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>01.01.2014 - 01.01.2017</td>
-                            <td>там - сям</td>
-                        </tr>
-                        <tr>
-                            <td>...</td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+        <button OnClick="test();">test</button>
+
+        <h1>3 Структура программ</h1>
+        <button OnClick="ch3_Triangle();">Треугольник в цикле</button>
+        <button OnClick="ch3_ChessBoard();">Шахматная доска</button>
+        <button OnClick="ch3_FizzBuzz();">FizzBuzz</button>
+
+        <h1>4 Функции</h1>
+        <button OnClick="ch4_Minimum();">Минимум</button>        
+        <button OnClick="ch4_Recursion();">Рекурсия</button>
+        <button OnClick="ch4_Count();">Считаем бобы</button>
+
+        <h1>5 Структуры данных: объекты и массивы</h1>
+        
+        <button OnClick="ch5_RangeSum();">Сумма диапазона</button>        
+        <button OnClick="ch5_ReverseArray();" disabled>Обращаем вспять массив</button>
+        <button OnClick="ch5_List();" disabled>Список</button>
+        <button OnClick="ch5_Deep_Comparison();" disabled>Глубокое сравнение</button>
+
+        <script src="js/test.js"></script>
+        <script src="js/ch3.js"></script>
+        <script src="js/ch4.js"></script>
+        <script src="js/ch5.js"></script>
     </body>    
 </html>
+
