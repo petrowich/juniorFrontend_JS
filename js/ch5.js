@@ -9,24 +9,20 @@ function ch5_RangeSum() {
 };
 
 function range(x, y, step) {
+
     var a = [];
-    step = (step == null) ? 1 : Math.abs(step); // делаем шаг положительным
+    step = (step == null) ? 1 : Math.abs(step); // делаем шаг всегда положительным
 
     if (x > y) {    //если начало диапазона больше окончания
-        step = -1*Math.abs(step);             //делаем шаг отрицательным
-    } 
-
-
-    if (step < 0) {
-        for (var i = x; i >= y; i += step) {
+        for (var i = x; i >= y; i += -1*step) { //делаем шаг отрицательным
             a.push(i);
-        }
+        }        
     } else {
         for (var i = x; i <= y; i += step) {
-            a.push(i);
+            a.push(i);            
         }
     }
-    
+   
     return a
 }
 
@@ -36,6 +32,8 @@ function sum(a) {
       total += a[i];
     return total;
   }
+
+
 
 
 
@@ -77,9 +75,10 @@ function reverseArrayInPlace(a, i) {
 
 
 
+
 function ch5_List() {
     console.clear();
-    console.log(arrayToList([10, 20]));
+    console.log(arrayToList([10, 20, 30]));    
     // → {value: 10, rest: {value: 20, rest: null}}
     console.log(listToArray(arrayToList([10, 20, 30])));
     // → [10, 20, 30]
@@ -89,44 +88,65 @@ function ch5_List() {
     // → 20
 };    
 
-function arrayToList(arr) {
-	for (var i = arr.length - 1; i >= 0; i--) {
-		var nextRest = list || null;
-		var list = {};
-
-		list["value"] = arr[i];
-		list["rest"] = nextRest;
+function arrayToList(a) {
+    var l, r;
+	for (var i = a.length - 1; i >= 0; i--) {
+        r = (!!l) ? l : null;  
+        l = {value: a[i], rest: r};
 	}
-
-	return list;
+	return l;
 }
 
 
-function listToArray(list) {
-	var arr = [];
-	arr.push(list.value);
-	var rest = list.rest;
+function listToArray(l) {
+    var a = [];
+    var r = l.rest;
 
-	while (rest) {
-		arr.push(rest.value);
-		rest = rest["rest"];
-	}
+	a.push(l.value);    //первое значение листа
 
-	return arr;
+	while (r!=null) {    //пока у текущего значения есть следующее
+		a.push(r.value);
+		r = r.rest;
+    }
+    
+	return a;
+}
+
+function prepend(v, l) {
+    return {value: v, rest: l};    
 }
 
 
-function prepend(elem, list) {
-	return {value: elem, rest: list}
+function nth(l, i) {    
+    if (l==null || i < 0){  //если листа нет или индекс отрицательный, то undefined
+        return undefined;
+    }            
+    return (i == 0) ? l.value : nth(l.rest, i - 1); //если переданный индекс не нулевой, обрабатываем следующий элемент
 }
 
-
-function nth(list, index) {
-	if (!list.rest && index != 0) return undefined;
-	return (index != 0) ? nth(list.rest, --index) : list.value;
-}
 
 
 function ch5_Deep_Comparison() {
-    console.log("не готово");    
+    console.clear();
+
+    console.log(deepEqual(null, null));
+
+    var obj = {here: {is: "an"}, object: 2};
+    console.log(deepEqual(obj, obj));
+    // → true
+    console.log(deepEqual(obj, {here: 1, object: 2}));
+    // → false
+    console.log(deepEqual(obj, {here: {is: "an"}, object: 2}));
+    // → true
 };
+
+function deepEqual(a, b) {
+
+    if (a === b)
+       return true;
+
+
+}
+
+
+
