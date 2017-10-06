@@ -38,23 +38,14 @@ function ch3_ChessBoard() {
 
     var str='';
     
-        for (var x = 1; x <= 8; x++) {     
-            for (var y = 1; y <= 8; y++) {
-    
-                if (x % 2 != 0) {
-                    if ((y + 1) % 2 != 0)
-                        str +=	"#";
-                    else
-                        str +=	" ";
-                } else {
-                    if ((y + 1) % 2 != 0)
-                        str +=	" ";
-                    else
-                        str +=	"#";
-                 }
-            }
-    
+        for (var x = 0; x < 8; x++) {     
+            for (var y = 0; y < 8; y++) {    
+                if ((x+y) % 2 != 0) 
+                    str +=	"#";
+                else
+                    str +=	" ";
+                }
             console.log(str);
             str = "";
-        }
+        }        
 };

@@ -17,7 +17,7 @@ function ch4_Recursion() {
 };
 
 function isEven(n) {
-    (n < 0) ? n = n * -1 : n ; //исправляем знак
+    n = (n < 0) ? n * -1 : n ; //исправляем знак
 	return (n == 0) ? true : (n == 1) ? false : isEven(n - 2);
 }
 
@@ -42,7 +42,7 @@ function countBs(str) {
     }
     return n;
     */
-    reutun (countChar(str, "B"));
+    return (countChar(str, "B"));
 }
 
 function countChar(str, char) {
