@@ -129,8 +129,6 @@ function nth(l, i) {
 function ch5_Deep_Comparison() {
     console.clear();
 
-    console.log(deepEqual(null, null));
-
     var obj = {here: {is: "an"}, object: 2};
     console.log(deepEqual(obj, obj));
     // → true
@@ -138,14 +136,23 @@ function ch5_Deep_Comparison() {
     // → false
     console.log(deepEqual(obj, {here: {is: "an"}, object: 2}));
     // → true
+ 
+    
 };
 
 function deepEqual(a, b) {
 
-    if (a === b)
-       return true;
+    if (a == null || b == null)
+        return (a === b);
 
-
+    if (typeof a == "object" && typeof b == "object"){  //если оба аргумента объекты, тогда сравниваем глубоко
+        for (var ap in a){
+            for (var bp in b){
+                return deepEqual(a[ap], b[bp]);
+            }
+        }
+    }        
+    else return (a === b); //если не объекты, сравниваем как примитивы
 }
 
 
