@@ -3,6 +3,16 @@
     <head>
         <title>выразительный JavaScript</title>
         <meta charset="utf-8">
+        <style> .changed{                         
+            color: rgb(0, 0, 160);   
+            font-family: Verdana, Arial, Helvetica, sans-serif;  
+            background-color: bisque;
+            }
+                .new{             
+            font-family: Verdana, Arial, Helvetica, sans-serif; 
+            color: darkblue;
+            background-color: darkorange;
+            }</style>
     </head>
     <body>
         <button OnClick="test();">test</button>
@@ -19,16 +29,16 @@
 
         <h1>5 Структуры данных: объекты и массивы</h1>
         
-        <button OnClick="ch5_RangeSum();">Сумма диапазона</button>        
-        <button OnClick="ch5_ReverseArray();">Обращаем вспять массив</button>
-        <button OnClick="ch5_List();">Список</button>
-        <button OnClick="ch5_Deep_Comparison();">Глубокое сравнение</button>
+        <button OnClick="ch5_RangeSum();" class="changed">Сумма диапазона</button>        
+        <button OnClick="ch5_ReverseArray();" class="new">Обращаем вспять массив</button>
+        <button OnClick="ch5_List();" class="new">Список</button>
+        <button OnClick="ch5_Deep_Comparison();" class="new">Глубокое сравнение</button>
 
         <h1>6 Функции высшего порядка</h1>
-        <button OnClick="ch6_Reduce();">Свёртка</button>        
-        <button OnClick="ch6_AgeDifference();">Разница в возрасте матерей и их детей</button>
-        <button OnClick="ch6_Longevity();">Историческая ожидаемая продолжительность жизни</button>
-        <button OnClick="ch6_EveryAndSome();">Every и some</button>
+        <button OnClick="ch6_Reduce();" class="new">Свёртка</button>        
+        <button OnClick="ch6_AgeDifference();" class="new">Разница в возрасте матерей и их детей</button>
+        <button OnClick="ch6_Longevity();" class="new">Историческая ожидаемая продолжительность жизни</button>
+        <button OnClick="ch6_EveryAndSome();" class="new">Every и some</button>
 
         <script src="js/test.js"></script>
         <script src="js/ch3.js"></script>
