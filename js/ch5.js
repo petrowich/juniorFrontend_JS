@@ -21,8 +21,7 @@ function range(x, y, step) {
         for (var i = x; i <= y; i += step) {
             a.push(i);            
         }
-    }
-   
+    }   
     return a
 }
 
@@ -32,7 +31,6 @@ function sum(a) {
       total += a[i];
     return total;
   }
-
 
 
 
@@ -126,6 +124,8 @@ function nth(l, i) {
 
 
 
+
+
 function ch5_Deep_Comparison() {
     console.clear();
 
@@ -154,6 +154,3 @@ function deepEqual(a, b) {
     }        
     else return (a === b); //если не объекты, сравниваем как примитивы
 }
-
-
-

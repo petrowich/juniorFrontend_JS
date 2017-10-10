@@ -5,18 +5,11 @@
     console.clear();
     //console.log('console test');
  
-    var i = {here: 1, object: 2};
-    i = 8;
-    i = ['A','B','C','X'];
-    console.log(typeof i);
-    console.log(i, numberOfProperties(i));
+    var arr = ["Яблоко", "Апельсин", "Груша"];
+    console.log("("+arr+")");
+    arr.forEach(function(item, i, arr) {
+      console.log( i + ": " + item + " (массив:" + arr + ")" );
+    });
 
-    function numberOfProperties(obj){
-        var i=0;
-        for (var n in obj){
-            i++;
-        }
-        return i;
-    }
 };
 
