@@ -136,6 +136,10 @@ function ch5_Deep_Comparison() {
     // → false
     console.log(deepEqual(obj, {here: {is: "an"}, object: 2}));
     // → true
+
+    obj = {here: {is: "an", are: 'we', someOtherProp: 'someOtherValue'}, object: 2};
+    console.log(deepEqual(obj, {here: {is: "an"}, object: 2}));
+    // ??
  
     
 };
@@ -143,14 +147,22 @@ function ch5_Deep_Comparison() {
 function deepEqual(a, b) {
 
     if (a == null || b == null)
-        return (a === b);
+        return (a === b);    
 
     if (typeof a == "object" && typeof b == "object"){  //если оба аргумента объекты, тогда сравниваем глубоко
-        for (var ap in a){
-            for (var bp in b){
-                return deepEqual(a[ap], b[bp]);
+        
+        var ap = Object.getOwnPropertyNames(a);
+        var bp = Object.getOwnPropertyNames(b);
+
+        if (ap.length==bp.length){
+            for (i = 0; i < ap.length; i++){
+                if (ap[i]===bp[i]){
+                    return deepEqual(a[ap[i]], b[bp[i]]);
+                }
+            else return false;
             }
         }
+        else return false;
     }        
     else return (a === b); //если не объекты, сравниваем как примитивы
 }

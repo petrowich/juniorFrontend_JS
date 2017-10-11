@@ -50,11 +50,9 @@ function ch6_Reduce() {
     var arrays = [[1, 2, 3], [4, 5], [6]];
 
     var array = arrays.reduce(function (array, current) {
-        for (var i = 0; i < current.length; i++){
-            array.push(current[i]);
-        }        
-        return array;
+        return array.concat(current);
     });
+
     console.log(array);
 };
 
@@ -69,24 +67,20 @@ function ch6_AgeDifference() {
         return array.reduce(plus) / array.length;
       }
       
-      var byName = {};
-      ancestry.forEach(function(person) {
+    var byName = {};
+    ancestry.forEach(function(person) {
         byName[person.name] = person;
+    });
+
+   
+    var ages = []; 
+
+    ancestry.forEach(function(person) {                //перебираем всех чуваков   
+        if (byName[person.mother])                     //если мамаша чувака есть в списке
+            ages.push(person.born - byName[person.mother].born)  //добавляем разницу возврастов в массив
       });
 
-      var mother = {}
-      var ages = [];
-     
-      for (var i = 0; i < ancestry.length; i++) {   //перебираем всех в массиве
-
-          mother = byName[ancestry[i].mother];      //по имени матери находим её учётную запись
-        
-          if (mother != null) {          //если запись есть
-              ages.push(ancestry[i].born - mother.born); //добавляем в массив разницу между возрастом текущего чела и его мамаши
-          }
-      };
-
-      console.log(average(ages));
+    console.log(average(ages));
 };
 
 
@@ -99,7 +93,6 @@ function ch6_Longevity() {
         function plus(a, b) { return a + b; }
         return array.reduce(plus) / array.length;
     }
-
 
     var centuries = {};
     
@@ -115,9 +108,8 @@ function ch6_Longevity() {
     });
     
     for (var century in centuries) {               //перебираем века
-        console.log(average(centuries[century]));  //для каждого века считаем среднее значение массива
-    }
-
+        console.log(century + ": " + average(centuries[century]));  //для каждого века считаем среднее значение массива
+    }    
 };
 
 
@@ -136,18 +128,18 @@ function ch6_EveryAndSome() {
     // → false
 };
 
-function every(array, value) {
+function every(array, fName) {
 	for (var i = 0; i < array.length; i++) { //перебираем массив
-        if (!(value(array[i])))  //функция не отдаст true
+        if (!(fName(array[i])))  //если функция не отдаст true
             return false;       //вылетаем с false
 	}
 	return true;
 };
 
 
-function some(array, value) {
+function some(array, fName) {
 	for (var i = 0; i < array.length; i++) {
-        if (value(array[i]))    //если функция отдаст true
+        if (fName(array[i]))    //если функция отдаст true
             return true;        //вылетаем с true
 	}
 	return false;

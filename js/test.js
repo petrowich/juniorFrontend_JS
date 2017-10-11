@@ -6,9 +6,9 @@
     //console.log('console test');
  
     var arr = ["Яблоко", "Апельсин", "Груша"];
-    console.log("("+arr+")");
+    
     arr.forEach(function(item, i, arr) {
-      console.log( i + ": " + item + " (массив:" + arr + ")" );
+      alert( i + ": " + item + " (массив:" + arr + ")" );
     });
 
 };
