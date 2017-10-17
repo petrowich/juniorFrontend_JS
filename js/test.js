@@ -5,11 +5,20 @@
     console.clear();
     //console.log('console test');
  
-    var arr = ["Яблоко", "Апельсин", "Груша"];
+    function bind(func, context) {
+      return function() { // (*)
+        return func.apply(context, arguments);
+      };
+    }
+
+    function f() {
+      console.log( this );
+    }
     
-    arr.forEach(function(item, i, arr) {
-      alert( i + ": " + item + " (массив:" + arr + ")" );
-    });
+    var g = bind(f, 'Context');
+    g.call();
+    g.apply();
+    g(); // Context
 
 };
 
